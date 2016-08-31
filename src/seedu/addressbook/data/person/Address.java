@@ -20,6 +20,7 @@ public class Address {
     public static final String MESSAGE_ADDRESS_CONSTRAINTS = "Postal code should only contain numbers";
     public static final String ADDRESS_VALIDATION_REGEX = "(?<block>.*)\\s*,\\s*(?<street>.*)\\s*,\\s*"
                                                         + "(?<unit>.*)\\s*,\\s*(?<postalCode>\\d*)";
+    public static final String ADDRESS_FORMAT = "%s, %s, %s, %s";
     public static final Pattern ADDRESS_PATTERN= Pattern.compile(ADDRESS_VALIDATION_REGEX);
     
     private final Block block;
@@ -47,22 +48,26 @@ public class Address {
     public static boolean isValidAddress(String test) {
         return test.matches(ADDRESS_VALIDATION_REGEX);
     }
+    
+    public String getValue() {
+        return String.format(ADDRESS_FORMAT, block, street, unit, postalCode);
+    }
 
     @Override
     public String toString() {
-        return String.format("%s, %s, %s, %s", block, street, unit, postalCode);
+        return getValue();
     }
 
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof Address // instanceof handles nulls
-                && this.value.equals(((Address) other).value)); // state check
+                && this.getValue().equals(((Address) other).getValue())); // state check
     }
 
     @Override
     public int hashCode() {
-        return value.hashCode();
+        return getValue().hashCode();
     }
 
     public boolean isPrivate() {
