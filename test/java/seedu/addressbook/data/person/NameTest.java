@@ -72,4 +72,10 @@ public class NameTest {
         final Name supersetDefaultName = new Name("John k smith Watson");
         assertTrue(defaultName.isSimilar(supersetDefaultName));
     }
+    
+    @Test
+    public void isSimilar_differentOrder_returnsTrue() throws IllegalValueException {
+        final Name differentorderDefaultName = new Name("Smith John K");
+        assertTrue(defaultName.isSimilar(differentorderDefaultName));
+    }
 }
