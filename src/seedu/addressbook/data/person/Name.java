@@ -72,6 +72,7 @@ public class Name {
          List<String> otherNameTokens = Arrays.asList(other.fullName.toLowerCase().split("\\s"));
          List<String> thisNameTokens = Arrays.asList(this.fullName.toLowerCase().split("\\s"));
          return this == other
-                || thisNameTokens.containsAll(otherNameTokens);
+                 || thisNameTokens.containsAll(otherNameTokens)
+                 || otherNameTokens.containsAll(thisNameTokens);
      }
 }

@@ -66,4 +66,10 @@ public class NameTest {
         assertTrue(defaultName.isSimilar(subsetDefaultNameD));
         assertTrue(defaultName.isSimilar(subsetDefaultNameE));
     }
+    
+    @Test
+    public void isSimilar_superset_returnsTrue() throws IllegalValueException {
+        final Name supersetDefaultName = new Name("John k smith Watson");
+        assertTrue(defaultName.isSimilar(supersetDefaultName));
+    }
 }
