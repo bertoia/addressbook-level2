@@ -13,12 +13,8 @@ public class NameTest {
     private Name defaultName;
 
     @Before
-    public void setup() {
-        try {
-            defaultName = new Name("John K Smith");
-        } catch (IllegalValueException e) {
-            e.printStackTrace();
-        }
+    public void setup() throws IllegalValueException {
+        defaultName = new Name("John K Smith");
     }
 
     @Test
@@ -29,5 +25,11 @@ public class NameTest {
     @Test
     public void isSimilar_nullArg_returnsFalse() {
         assertFalse(defaultName.isSimilar(null));
+    }
+    
+    @Test
+    public void isSimilar_differentCase_returnsTrue() throws IllegalValueException {
+        final Name lowerCaseDefaultName = new Name("john k smith");
+        assertTrue(defaultName.isSimilar(lowerCaseDefaultName));
     }
 }

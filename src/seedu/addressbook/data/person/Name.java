@@ -67,6 +67,7 @@ public class Name {
      */
      public boolean isSimilar(Name other) {
          return this == other // short circuit if same object
-                 || (other instanceof Name); // instanceof handles nulls;
+                 || (other instanceof Name // instanceof handles nulls;
+                 && this.fullName.equalsIgnoreCase(other.fullName));
      }
 }
