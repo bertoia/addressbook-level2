@@ -32,4 +32,10 @@ public class NameTest {
         final Name lowerCaseDefaultName = new Name("john k smith");
         assertTrue(defaultName.isSimilar(lowerCaseDefaultName));
     }
+    
+    @Test
+    public void isSimilar_differentName_returnsFalse() throws IllegalValueException {
+        final Name differentName = new Name("Mary J Watson");
+        assertFalse(defaultName.isSimilar(differentName));
+    }
 }
