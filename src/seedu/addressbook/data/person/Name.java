@@ -66,8 +66,13 @@ public class Name {
      * Two names are considered similar if:
      */
      public boolean isSimilar(Name other) {
-         return this == other // short circuit if same object
-                 || (other instanceof Name // instanceof handles nulls;
-                 && this.fullName.equalsIgnoreCase(other.fullName));
+         if (!(other instanceof Name)) {
+             return false;
+         }
+         List<String> otherNameTokens = Arrays.asList(other.fullName.split("\\s"));
+         List<String> thisNameTokens = Arrays.asList(this.fullName.split("\\s"));
+         return this == other
+                || this.fullName.equalsIgnoreCase(other.fullName)
+                || thisNameTokens.containsAll(otherNameTokens);
      }
 }

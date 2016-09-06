@@ -38,4 +38,20 @@ public class NameTest {
         final Name differentName = new Name("Mary J Watson");
         assertFalse(defaultName.isSimilar(differentName));
     }
+    
+    @Test
+    public void isSimilar_subset_returnsTrue() throws IllegalValueException {
+        final Name subsetDefaultNameA = new Name("John");
+        final Name subsetDefaultNameB = new Name("K");
+        final Name subsetDefaultNameC = new Name("Smith");
+        final Name subsetDefaultNameD = new Name("John K");
+        final Name subsetDefaultNameE = new Name("John Smith");
+        assertTrue(defaultName.isSimilar(subsetDefaultNameA));
+        assertTrue(defaultName.isSimilar(subsetDefaultNameB));
+        assertTrue(defaultName.isSimilar(subsetDefaultNameC));
+        assertTrue(defaultName.isSimilar(subsetDefaultNameD));
+        assertTrue(defaultName.isSimilar(subsetDefaultNameE));
+    }
+    
+    
 }
