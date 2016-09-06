@@ -52,6 +52,18 @@ public class NameTest {
         assertTrue(defaultName.isSimilar(subsetDefaultNameD));
         assertTrue(defaultName.isSimilar(subsetDefaultNameE));
     }
-    
-    
+
+    @Test
+    public void isSimilar_subsetDifferentCase_returnsTrue() throws IllegalValueException {
+        final Name subsetDefaultNameA = new Name("john");
+        final Name subsetDefaultNameB = new Name("k");
+        final Name subsetDefaultNameC = new Name("smith");
+        final Name subsetDefaultNameD = new Name("john k");
+        final Name subsetDefaultNameE = new Name("John Smith");
+        assertTrue(defaultName.isSimilar(subsetDefaultNameA));
+        assertTrue(defaultName.isSimilar(subsetDefaultNameB));
+        assertTrue(defaultName.isSimilar(subsetDefaultNameC));
+        assertTrue(defaultName.isSimilar(subsetDefaultNameD));
+        assertTrue(defaultName.isSimilar(subsetDefaultNameE));
+    }
 }

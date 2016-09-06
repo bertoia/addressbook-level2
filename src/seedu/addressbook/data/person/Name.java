@@ -69,10 +69,9 @@ public class Name {
          if (!(other instanceof Name)) {
              return false;
          }
-         List<String> otherNameTokens = Arrays.asList(other.fullName.split("\\s"));
-         List<String> thisNameTokens = Arrays.asList(this.fullName.split("\\s"));
+         List<String> otherNameTokens = Arrays.asList(other.fullName.toLowerCase().split("\\s"));
+         List<String> thisNameTokens = Arrays.asList(this.fullName.toLowerCase().split("\\s"));
          return this == other
-                || this.fullName.equalsIgnoreCase(other.fullName)
                 || thisNameTokens.containsAll(otherNameTokens);
      }
 }
