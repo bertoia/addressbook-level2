@@ -66,6 +66,7 @@ public class Name {
      * Two names are considered similar if:
      */
      public boolean isSimilar(Name other) {
-         return this == other; // short circuit if same object
+         return this == other // short circuit if same object
+                 || (other instanceof Name); // instanceof handles nulls;
      }
 }

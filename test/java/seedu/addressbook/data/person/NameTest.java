@@ -1,5 +1,6 @@
 package seedu.addressbook.data.person;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
@@ -23,5 +24,10 @@ public class NameTest {
     @Test
     public void isSimilar_sameObject_returnsTrue() {
         assertTrue(defaultName.isSimilar(defaultName));
+    }
+    
+    @Test
+    public void isSimilar_nullArg_returnsFalse() {
+        assertFalse(defaultName.isSimilar(null));
     }
 }
